@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -25,7 +24,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
    private static final String TITULO_APPBAR_EDITA_ALUNO = "Edita aluno";
    private EditText campoNome;
    private EditText campoSobrenome;
-   private EditText campoTelefone;
+   private EditText campoTelefoneFixo;
+   private EditText campoTelefoneCelular;
    private EditText campoEmail;
    private AlunoDAO dao;
    private Aluno aluno;
@@ -71,14 +71,16 @@ public class FormularioAlunoActivity extends AppCompatActivity {
    private void preencherCampos() {
       campoNome.setText(aluno.getNome());
       campoSobrenome.setText(aluno.getSobrenome());
-      campoTelefone.setText(aluno.getTelefone());
+      campoTelefoneFixo.setText(aluno.getTelefoneFixo());
+      campoTelefoneCelular.setText(aluno.getTelefoneCelular());
       campoEmail.setText(aluno.getEmail());
    }
 
    private void inicializacaoCampos() {
       campoNome = findViewById(R.id.activity_formulario_aluno_nome);
       campoSobrenome = findViewById(R.id.activity_formulario_aluno_sobrenome);
-      campoTelefone = findViewById(R.id.activity_formulario_aluno_telefone);
+      campoTelefoneFixo = findViewById(R.id.activity_formulario_aluno_telefone_fixo);
+      campoTelefoneCelular = findViewById(R.id.activity_formulario_aluno_telefone_celular);
       campoEmail = findViewById(R.id.activity_formulario_aluno_email);
    }
 
@@ -95,12 +97,14 @@ public class FormularioAlunoActivity extends AppCompatActivity {
    private void preencherAluno() {
       String nome = campoNome.getText().toString();
       String sobrenome = campoSobrenome.getText().toString();
-      String telefone = campoTelefone.getText().toString();
+      String telefoneFixo = campoTelefoneFixo.getText().toString();
+      String telefoneCelular = campoTelefoneCelular.getText().toString();
       String email = campoEmail.getText().toString();
 
       aluno.setNome(nome);
       aluno.setSobrenome(sobrenome);
-      aluno.setTelefone(telefone);
+      aluno.setTelefoneFixo(telefoneFixo);
+      aluno.setTelefoneCelular(telefoneCelular);
       aluno.setEmail(email);
       aluno.setMomentoDeCadastro(Calendar.getInstance());
    }

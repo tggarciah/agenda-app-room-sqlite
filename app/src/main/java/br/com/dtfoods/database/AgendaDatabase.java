@@ -13,7 +13,7 @@ import br.com.dtfoods.database.converter.ConversorCalendar;
 import br.com.dtfoods.database.dao.AlunoDAO;
 import br.com.dtfoods.model.Aluno;
 
-@Database(entities = {Aluno.class}, version = 3, exportSchema = true)
+@Database(entities = {Aluno.class}, version = 4, exportSchema = true)
 @TypeConverters(ConversorCalendar.class)
 public abstract class AgendaDatabase extends RoomDatabase {
    private static final String NOME_BANCO_DADOS = "agenda.db";

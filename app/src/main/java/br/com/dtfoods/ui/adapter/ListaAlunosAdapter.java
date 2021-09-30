@@ -49,7 +49,7 @@ public class ListaAlunosAdapter extends BaseAdapter {
       TextView campoTelefone = view.findViewById(R.id.item_aluno_telefone);
 
       campoNome.setText(aluno.getNomeCompleto() + " " + aluno.dataFormadata());
-      campoTelefone.setText(aluno.getTelefone());
+      campoTelefone.setText(aluno.getTelefoneFixo());
    }
 
    private View getInflate(ViewGroup viewGroup) {

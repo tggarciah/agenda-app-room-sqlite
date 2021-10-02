@@ -55,9 +55,8 @@ public class ListaAlunosAdapter extends BaseAdapter {
 
       TextView campoTelefone = view.findViewById(R.id.item_aluno_telefone);
 
-      new BuscaPrimeiroTelefoneAlunoTask(telefoneDAO, aluno.getId(), (telefone) -> {
-         campoTelefone.setText(telefone.getNumero());
-      }).execute();
+      new BuscaPrimeiroTelefoneAlunoTask(telefoneDAO, aluno.getId(),
+              telefone -> campoTelefone.setText(telefone.getNumero())).execute();
    }
 
    private View getInflate(ViewGroup viewGroup) {

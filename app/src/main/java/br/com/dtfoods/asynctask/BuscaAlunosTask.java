@@ -9,6 +9,7 @@ import br.com.dtfoods.model.Aluno;
 import br.com.dtfoods.ui.adapter.ListaAlunosAdapter;
 
 public class BuscaAlunosTask extends AsyncTask<Void, Void, List<Aluno>> {
+   
    private final AlunoDAO dao;
    private final ListaAlunosAdapter adapter;
 
@@ -18,7 +19,7 @@ public class BuscaAlunosTask extends AsyncTask<Void, Void, List<Aluno>> {
    }
 
    @Override
-   protected List<Aluno> doInBackground(Void[] objects) {
+   protected List<Aluno> doInBackground(Void... voids) {
       return dao.todos();
    }
 

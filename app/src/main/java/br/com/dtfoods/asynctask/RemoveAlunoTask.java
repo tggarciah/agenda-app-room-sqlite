@@ -7,6 +7,7 @@ import br.com.dtfoods.model.Aluno;
 import br.com.dtfoods.ui.adapter.ListaAlunosAdapter;
 
 public class RemoveAlunoTask extends AsyncTask<Void, Void, Void> {
+
    private final AlunoDAO dao;
    private final ListaAlunosAdapter adapter;
    private final Aluno aluno;

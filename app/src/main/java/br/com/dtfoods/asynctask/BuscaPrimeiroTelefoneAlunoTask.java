@@ -24,7 +24,9 @@ public class BuscaPrimeiroTelefoneAlunoTask extends AsyncTask<Void, Void, Telefo
    @Override
    protected void onPostExecute(Telefone telefone) {
       super.onPostExecute(telefone);
-      listener.quandoEncontrado(telefone);
+      if (telefone != null) {
+         listener.quandoEncontrado(telefone);
+      }
    }
 
    public interface PrimeiroTelefoneEncontradoListener {

@@ -39,7 +39,7 @@ public class Telefone {
    }
 
    public String getNumero() {
-      return numero;
+      return numero != null? numero : "";
    }
 
    public void setNumero(String numero) {
@@ -52,5 +52,15 @@ public class Telefone {
 
    public void setTipo(TipoTelefone tipo) {
       this.tipo = tipo;
+   }
+
+   @Override
+   public String toString() {
+      return "Telefone{" +
+              "id=" + id +
+              ", numero='" + numero + '\'' +
+              ", tipo=" + tipo +
+              ", alunoId=" + alunoId +
+              '}';
    }
 }

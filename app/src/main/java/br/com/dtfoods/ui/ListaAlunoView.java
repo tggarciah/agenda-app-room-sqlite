@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import br.com.dtfoods.asynctask.BuscaAlunosTask;
+import br.com.dtfoods.asynctask.RemoveAlunoTask;
 import br.com.dtfoods.database.AgendaDatabase;
 import br.com.dtfoods.database.dao.AlunoDAO;
 import br.com.dtfoods.model.Aluno;
@@ -23,7 +25,7 @@ public class ListaAlunoView {
    public ListaAlunoView(Context context) {
       this.context = context;
       adapter = new ListaAlunosAdapter(this.context);
-      dao = AgendaDatabase.getInstance(context).getRoomAlunoDAO();
+      dao = AgendaDatabase.getInstance(context).getAlunoDAO();
    }
 
    public void confirmarRemocaoAluno(@NonNull final MenuItem item) {
@@ -39,16 +41,15 @@ public class ListaAlunoView {
               .show();
    }
 
-   public void atualizaAlunos() {
-      adapter.atualiza(dao.todos());
-   }
-
    public void configuraAdapter(@NonNull ListView listaAlunos) {
       listaAlunos.setAdapter(adapter);
    }
 
+   public void atualizaAlunos() {
+      new BuscaAlunosTask(dao, adapter).execute();
+   }
+
    private void remover(Aluno aluno) {
-      dao.remover(aluno);
-      adapter.remove(aluno);
+      new RemoveAlunoTask(dao, adapter, aluno).execute();
    }
 }

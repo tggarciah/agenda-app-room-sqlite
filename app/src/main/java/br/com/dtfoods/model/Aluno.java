@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 @Entity
 public class Aluno implements Serializable {
@@ -14,8 +15,6 @@ public class Aluno implements Serializable {
    private int id = 0;
    private String nome;
    private String sobrenome;
-   private String telefoneFixo;
-   private String telefoneCelular;
    private String email;
    private Calendar momentoDeCadastro = Calendar.getInstance();
 
@@ -25,14 +24,6 @@ public class Aluno implements Serializable {
 
    public void setNome(String nome) {
       this.nome = nome;
-   }
-
-   public String getTelefoneFixo() {
-      return telefoneFixo;
-   }
-
-   public void setTelefoneFixo(String telefoneFixo) {
-      this.telefoneFixo = telefoneFixo;
    }
 
    public String getEmail() {
@@ -84,11 +75,4 @@ public class Aluno implements Serializable {
       return getNome() + " " + getSobrenome();
    }
 
-   public String getTelefoneCelular() {
-      return telefoneCelular;
-   }
-
-   public void setTelefoneCelular(String telefoneCelular) {
-      this.telefoneCelular = telefoneCelular;
-   }
 }

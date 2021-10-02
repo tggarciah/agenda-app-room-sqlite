@@ -13,7 +13,7 @@ import br.com.dtfoods.model.Aluno;
 @Dao
 public interface AlunoDAO {
    @Insert
-   void salvar(Aluno aluno);
+   Long salvar(Aluno aluno);
 
    @Query("SELECT * FROM aluno")
    List<Aluno> todos();
